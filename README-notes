@@ -1,0 +1,89 @@
+
+README-notes
+2019-2-3
+
+
+Origin
+========
+
+git clone https://github.com/YosysHQ/yosys
+
+
+Notes
+=======
+
+Extra packages installed: 
+
+    clang bison flex libffi-devel graphviz readline-devel
+
+Build reference:
+
+    http://www.clifford.at/yosys/download.html
+
+Build commands:
+
+    git checkout yosys-0.8
+    make config-clang
+    vi Makefile
+    vi Makefile.conf
+
+    make PREFIX=<prefix-path>
+    make DESTDIR=<prefix-path> install
+
+Build included abc screenlog:
+
+    [ 89%] Building techlibs/common/prep.o
+    [100%] Building yosys
+    [100%] Building yosys-config
+    [100%] Building abc/abc-ae6716b
+    Pulling ABC from https://github.com/berkeley-abc/abc:
+    + test -d abc
+    + git clone https://github.com/berkeley-abc/abc abc
+    Cloning into 'abc'...
+    remote: Enumerating objects: 188, done.
+    remote: Counting objects: 100% (188/188), done.
+    remote: Compressing objects: 100% (131/131), done.
+    remote: Total 56059 (delta 129), reused 97 (delta 57), pack-reused 55871
+    Receiving objects: 100% (56059/56059), 41.16 MiB | 1.12 MiB/s, done.
+    Resolving deltas: 100% (47844/47844), done.
+    + cd abc
+    + make DEP= clean
+    make[1]: Entering directory '/.../yosys/abc'
+    Using CC=gcc
+    Using CXX=g++
+    Using LD=g++
+    Compiling with CUDD
+    Using libreadline
+    Using pthreads
+    Found GCC_VERSION 8
+    Found GCC_MAJOR>=5
+    Using CFLAGS=-Wall -Wno-unused-function -Wno-write-strings -Wno-sign-compare -DLIN64 -DSIZEOF_VOID_P=8 -DSIZEOF_LONG=8 -DSIZEOF_INT=4 -DABC_USE_CUDD=1 -DABC_USE_READLINE  -DABC_USE_PTHREADS -Wno-unused-but-set-variable
+    `` Cleaning up...
+    removed 'arch_flags'
+    make[1]: Leaving directory '/.../yosys/abc'
+    + git fetch origin master
+    From https://github.com/berkeley-abc/abc
+     * branch              master     -> FETCH_HEAD
+    + git checkout ae6716b
+    Note: checking out 'ae6716b'.
+    
+    You are in 'detached HEAD' state. You can look around, make experimental
+    changes and commit them, and you can discard any commits you make in this
+    state without impacting any branches by performing another checkout.
+    
+    If you want to create a new branch to retain commits you create, you may
+    do so (now or later) by using -b with the checkout command again. Example:
+    
+      git checkout -b <new-branch-name>
+    
+    HEAD is now at ae6716b0 Counting ones in truth table.
+    [ 95%] ABC: Using CC=clang
+    [ 95%] ABC: Using CXX=clang
+    [ 95%] ABC: Using LD=clang
+    [ 95%] ABC: Compiling with CUDD
+    [ 95%] ABC: Using libreadline
+    [ 95%] ABC: Using pthreads
+    [ 95%] ABC: Using explicit -lstdc++
+    [ 95%] ABC: Using CFLAGS=-Wall -Wno-unused-function -Wno-write-strings -Wno-sign-compare -DABC_USE_STDINT_H -DABC_USE_CUDD=1 -DAB
+
+
